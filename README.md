@@ -32,9 +32,11 @@ print(student_grades["Aisha"])
 
 ## RUN ⚡
 
-Run the code in `predict.py` and see if you were right.
+Run the code in `predict1.py` and see if you were right.
 
 Now try these experiments:
+
+## INVESTIGATE 🕵️‍♀️
 
 ```python
 # Experiment 1: Adding new data
@@ -50,56 +52,15 @@ print(student_grades["Liam"])  # What error do you expect?
 - What error occurred with Liam?
 - How is `.get()` different from using square brackets `[]`?
 
-## INVESTIGATE 🔍
+## INVESTIGATE (Continued) 🔍
 
-### What are Dictionaries?
+### Your Turn to Experiment
 
-Dictionaries store data as key-value pairs. Think of them like a real dictionary where you look up a word (key) to find its definition (value).
+### Comparing Approaches: If/Else vs Dictionaries
 
-```python
-# Dictionary structure
-my_dict = {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": "value3"
-}
-```
+One of the most powerful uses of dictionaries is replacing long chains of if/else statements. Let's compare two approaches:
 
-### Common Dictionary Operations
-
-```python
-# Creating dictionaries
-colours = {"red": "#FF0000", "green": "#00FF00", "blue": "#0000FF"}
-
-# Accessing values
-print(colours["red"])        # Direct access
-print(colours.get("red"))    # Safe access
-
-# Adding/updating
-colours["yellow"] = "#FFFF00"
-colours["red"] = "#CC0000"   # Updates existing key
-
-# Checking if key exists
-if "purple" in colours:
-    print("Purple exists!")
-
-# Getting all keys or values
-print(colours.keys())    # All keys
-print(colours.values())  # All values
-```
-
-### Investigation Tasks:
-
-1. Create a dictionary called `favourite_foods` with at least 4 people's names as keys and their favourite foods as values.
-
-2. Write code to:
-   - Add a new person
-   - Change someone's favourite food
-   - Safely check for someone who might not be in the dictionary
-
-3. Compare these two approaches for handling user choices:
-
-**Approach A (Multiple if/else):**
+**Approach A: Multiple if/else statements**
 ```python
 user_choice = input("Pick a colour: ")
 
@@ -115,7 +76,7 @@ else:
 print(f"Hex code: {hex_code}")
 ```
 
-**Approach B (Dictionary):**
+**Approach B: Dictionary lookup**
 ```python
 colour_codes = {
     "red": "#FF0000",
@@ -128,80 +89,129 @@ hex_code = colour_codes.get(user_choice, "Unknown colour")
 print(f"Hex code: {hex_code}")
 ```
 
-**Questions:**
-- Which approach is shorter?
+**Discussion Questions:**
+- Which approach uses fewer lines of code?
 - Which would be easier to add 10 more colours to?
 - Which is easier to read and understand?
+- Can you think of other situations where this pattern would be useful?
 
 ## MODIFY 🛠️
 
-### Task 1: Menu System
-Create a simple restaurant menu using a dictionary. Then write code that:
-- Shows all available items
-- Takes a user's order
-- Displays the price, or "Item not available" if it's not on the menu
+Now it's time to apply what you've learned by modifying and extending dictionary code.
 
+### Task 1: Restaurant Menu System 
+
+Create a simple restaurant menu using a dictionary (See `restaurant.py`). Your program should:
+1. Display all available items and their prices
+2. Take a user's order
+3. Display the price, or show "Item not available" if it's not on the menu
+
+```python
+menu = {
+    "pizza": 8.99,
+    "burger": 6.50,
+    "salad": 5.25,
+    # Add at least 3 more items
+}
+
+# Your code here
 ```
 
-### Task 2: 🤔 Challenge Connection
-Think back to your Rock Paper Scissors game with all those if/else statements checking combinations...
+### Task 2: Challenge Connection 🤔
 
-**Hint Questions:**
-- What if player moves were keys in a dictionary?
+Think back to your Rock Paper Scissors game with all those if/else statements checking win conditions...
+
+**Hint Questions to explore:**
+- What if you created a dictionary where player moves were keys?
 - What if the values told you what each move beats?
-- How might this make your RPS code cleaner?
+- Could you use a nested dictionary to store all win conditions?
+- How might this approach make your RPS code cleaner and easier to extend?
 
-Think about the possibilities!
+Take a few minutes to sketch out how you might refactor your Rock Paper Scissors code using a dictionary.
 
 ## MAKE 🚀
 
-Choose one of these projects:
+Choose one project to build from scratch. Challenge yourself to use dictionaries effectively!
 
-### Project A: Personal Assistant Bot
-Create a dictionary-based chatbot that responds to different greetings and questions:
+### Project A: Personal Assistant Chatbot
 
+Create a dictionary-based chatbot that responds to different greetings and questions.
+
+**Requirements:**
+- Include at least 8 different input-response pairs
+- Handle unknown inputs gracefully with a default message
+- Make responses friendly and varied
+
+**Starter code:**  (You can create yourself a new .py file for this code)
 ```python
 responses = {
     "hello": "Hi there! How can I help?",
     "how are you": "I'm doing great, thanks!",
-    "bye": "Goodbye! Have a great day!"
-    # Add more responses...
+    "bye": "Goodbye! Have a great day!",
+    # Add at least 5 more responses
 }
+
+# Your code here to make the chatbot interactive
 ```
 
-Make it handle unknown inputs gracefully and add at least 8 different responses.
+**Extension ideas:**
+- Add multiple possible responses for each input (using lists as values)
+- Make the bot respond to partial matches
+- Keep a conversation history
 
 ### Project B: Simple Translator
-Create a dictionary that translates English words to another language. Your programme should:
+
+Create a dictionary that translates English words to another language you know.
+
+**Requirements:**
+- Start with at least 10 word pairs
 - Allow users to look up translations
-- Add new word pairs
-- Handle words that aren't in the dictionary yet
+- Allow users to add new word pairs during the programme
+- Handle words that aren't in the dictionary yet with a helpful message
+
+**Extension ideas:**
+- Add the ability to translate in both directions
+- Save new words to a file
+- Create a quiz mode to test vocabulary
 
 ### Project C: Game Statistics Tracker
-Create a system that tracks wins/losses for different games using nested dictionaries:
 
+Create a system that tracks wins, losses, and draws for different players across multiple games.
+
+**Requirements:**
+- Use nested dictionaries to store player statistics
+- Include functions to update statistics after each game
+- Display a leaderboard showing player rankings
+- Calculate win percentages
+
+**Starter structure:**
 ```python
 game_stats = {
-    "Kofi": {"wins": 0, "losses": 0},
-    "Jasmine": {"wins": 0, "losses": 0}
+    "Kofi": {"wins": 0, "losses": 0, "draws": 0},
+    "Jasmine": {"wins": 0, "losses": 0, "draws": 0}
 }
+
+def update_stats(player, result):
+    # Your code here
+    pass
+
+def display_leaderboard():
+    # Your code here
+    pass
 ```
 
-Include functions to update stats and display leaderboards.
+**Extension ideas:**
+- Track statistics for different game types
+- Add a player comparison feature
+- Include timestamps for recent games
 
 ## Reflection Questions 💭
 
+Take a moment to think about what you've learned:
+
 - When might dictionaries be more useful than lists?
-- How do dictionaries make code more readable?
+- How do dictionaries make code more readable and maintainable?
 - What connections do you see between dictionaries and your previous Rock Paper Scissors project?
 - What other coding problems have you encountered where dictionaries might help?
-
-## Extension Challenges 🌟
-
-Ready for more? Try these:
-
-- **Dictionary Comprehensions:** Research and try creating dictionaries using comprehension syntax
-- **Nested Dictionaries:** Create a student database with multiple pieces of information per student
-- **Dictionary Methods:** Explore `.items()`, `.pop()`, and `.update()` methods
-- **Real Data:** Find a dataset online and represent it using dictionaries
+- What was the most surprising thing you learned about dictionaries today?
 
